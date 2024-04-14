@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "type": "events",
+      "id": "asdasd",
+      "attributes": {
+        "name": "Grand Old Mansion",
+        "qty-people": 10,
+        "location": "Sao Paulo",
+        "started-at": "2023-03-03 10:00:00"
+      }
+    }
+  ]
+}
