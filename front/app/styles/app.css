@@ -11,3 +11,22 @@
 .form-login h2 {
   font-size: 18px;
 }
+
+header {
+  background-color: #f2f2f2;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .menu a {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+header .menu a:hover {
+  color: rgb(230 109 57);
+  text-decoration: none;
+}
