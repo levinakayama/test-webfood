@@ -1,12 +1,13 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 .form-login {
-    margin: 0 auto;
-    width: 250px;
+  margin: 0 auto;
+  width: 250px;
 }
 
 .form-login h1 {
-    font-size: 24px;
+  font-size: 24px;
 }
+
 .form-login h2 {
-    font-size: 18px;
+  font-size: 18px;
 }

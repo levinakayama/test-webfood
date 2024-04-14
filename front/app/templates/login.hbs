@@ -5,14 +5,14 @@
             <div class="form-login d-flex flex-column mt-5">
                 <h1 class="text-center">Acesse sua conta</h1>
                 <h2 class="text-center">Test Webfood</h2>
-                <form class="mt-3" {{action "submit" true on="submit"}}>
+                <form class="mt-3" onsubmit={{action "submit"}}>
                     <div class="mb-3">
                         <label>E-mail:</label>
-                        <input type="email" class="form-control" placeholder="Digite seu e-mail" value="" />
+                    <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail" onchange={{action "updateValue"}} value={{@model.email}} />
                     </div>
                     <div class="mb-3">
                         <label>Senha:</label>
-                        <input type="password" class="form-control" placeholder="Digite sua senha" value="" />
+                        <input type="password" name="pass" class="form-control" placeholder="Digite sua senha" />
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Acessar</button>
                 </form>

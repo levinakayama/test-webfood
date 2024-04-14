@@ -5,11 +5,11 @@ export default class IndexRoute extends Route {
   @service router;
 
   // beforeModel() {
-  //     this.router.transitionTo('login'); 
+  //     this.router.transitionTo('login');
   // }
   model() {
     return {
-        campo:"xcvxcvxcvs"
-    }
+      campo: 'xcvxcvxcvs',
+    };
   }
 }
