@@ -15,6 +15,8 @@ app.use((req, res, next) => {
     next()
 })
 
+app.options('*',cors(corsOptions))
+
 app.get('/', (req, res) => {
     res.send({
         campo: 'valor'

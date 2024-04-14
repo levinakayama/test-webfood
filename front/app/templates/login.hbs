@@ -1,0 +1,23 @@
+{{page-title "Login"}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-login d-flex flex-column mt-5">
+                <h1 class="text-center">Acesse sua conta</h1>
+                <h2 class="text-center">Test Webfood</h2>
+                <form class="mt-3" {{action "submit" true on="submit"}}>
+                    <div class="mb-3">
+                        <label>E-mail:</label>
+                        <input type="email" class="form-control" placeholder="Digite seu e-mail" value="" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="Digite sua senha" value="" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{outlet}}
