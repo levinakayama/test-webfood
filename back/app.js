@@ -15,11 +15,28 @@ app.use((req, res, next) => {
     next()
 })
 
-app.options('*',cors(corsOptions))
+app.options('*', cors(corsOptions))
 
-app.get('/', (req, res) => {
+app.get('/events', (req, res) => {
     res.send({
-        campo: 'valor'
+        'data': [
+            {
+                'type': 'events',
+                'id': '1',
+                'attributes': {
+                    'name': 'Grand Old Mansion',
+                    'qty-people': 10,
+                    'location': 'Sao Paulo',
+                    'started-at': '2023-03-03 10:00:00'
+                }
+            }
+        ]
+    })
+})
+
+app.post('/events', (req, res) => {
+    res.send({
+        msg: 'Criado com sucesso!'
     })
 })
 
