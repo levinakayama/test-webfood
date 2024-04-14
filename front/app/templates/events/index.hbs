@@ -18,6 +18,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nome</th>
                             <th>Qtde de Pessoas</th>
                             <th>Localização</th>
@@ -28,6 +29,7 @@
                     <tbody>
                         {{#each @model.rows as |event|}}
                         <tr>
+                            <td>{{event.id}}</td>
                             <td>{{event.name}}</td>
                             <td>{{event.qtyPeople}}</td>
                             <td>{{event.location}}</td>
