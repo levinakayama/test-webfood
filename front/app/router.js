@@ -10,5 +10,7 @@ Router.map(function () {
   this.route('index', { path: '/' });
   this.route('login');
   this.route('dashboard');
-  this.route('events');
+  this.route('events',()=>{
+    this.route('index');
+  });
 });

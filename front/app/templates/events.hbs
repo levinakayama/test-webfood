@@ -3,42 +3,7 @@
     <div class="card mt-4">
         <div class="card-header">Eventos</div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="m-0 p-0">Lista de eventos cadastrados</p>
-                </div>
-                <div class="col-md-12 mt-3">
-                    <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Qtde de Pessoas</th>
-                                <th>Localização</th>
-                                <th>Data do Evento</th>
-                                <th>Opções</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each @model.rows as |event|}}
-                                <tr>
-                                    <td>{{event.name}}</td>
-                                    <td>{{event.qtyPeople}}</td>
-                                    <td>{{event.location}}</td>
-                                    <td>{{event.startedAt}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-sm">Editar</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
-                                    </td>
-                                </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-                </div>
-            </div>
+            {{outlet}}
         </div>
     </div>
 </Header>
-
-{{!-- {{outlet}} --}}
