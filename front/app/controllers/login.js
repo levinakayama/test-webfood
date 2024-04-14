@@ -1,7 +1,9 @@
 import Controller from '@ember/controller';
-
+import { service } from '@ember/service';
 
 export default class LoginController extends Controller {
+    @service router;
+
     actions = {
         updateValue(e) {
             let model = this.get('model')
@@ -9,8 +11,8 @@ export default class LoginController extends Controller {
         },
         submit(e) {
             e.preventDefault();
-            let model = this.get('model')
-            console.log('submit', model.get('email'));
+            console.log('submit', this.get('model.email'), this.get('model.pass'));
+            this.router.transitionTo('index');
         },
     };
 }
