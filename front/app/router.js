@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('login');
   this.route('dashboard');
   this.route('events',()=>{
-    this.route('index');
+    this.route('index',{path:'/*'});
+    this.route('add',{path:'add'});
   });
 });
