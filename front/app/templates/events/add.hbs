@@ -3,17 +3,33 @@
 
 <div class="card-header">
     <div class="d-flex align-items-center">
-        <div>Novo Evento</div>
+        <div>Novo Evento<br/><small>Preencha os dados abaixo</small></div>
         <div class="flex-fill d-flex justify-content-end">
             <LinkTo @route="events.index" class="btn btn-secondary btn-sm">Voltar</LinkTo>
         </div>
     </div>
 </div>
 <div class="card-body">
-    <div class="row">
-        <div class="col-md-12">
-            <p class="m-0 p-0">Preencha os dados abaixo</p>
+    <form onsubmit={{action "submit" }}>
+        <div class="form-row">
+            <div class="col-md-8 mb-3">
+                <label>Nome:</label>
+                <input type="text" name="name" class="form-control" placeholder="Nome do Evento"
+                            onchange={{action "updateValue" }} value={{@model.name}} />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Qtde de Pessoas:</label>
+                <input type="number" name="qtyPeople" class="form-control" placeholder="Qtde de Pessoas"
+                            onchange={{action "updateValue" }} value={{@model.qtyPeople}} />
+            </div>
+            <div class="col-md-12 mb-3">
+                <label>Localização:</label>
+                <input type="text" name="location" class="form-control" placeholder="Localização"
+                            onchange={{action "updateValue" }} value={{@model.location}} />
+            </div>
         </div>
-        
-    </div>
+        <div class="clearfix">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
 </div>
