@@ -1,6 +1,8 @@
 const express = require('express')
 var cors = require('cors')
 const app = express()
+const bodyParser = require('body-parser')
+app.use(bodyParser.json());
 const port = 8000
 
 var corsOptions = {
@@ -35,9 +37,9 @@ app.get('/events', (req, res) => {
 })
 
 app.post('/events', (req, res) => {
-    res.send({
-        msg: 'Criado com sucesso!'
-    })
+    console.log(req.body)
+    req.body.data['id'] = '3';
+    res.send(req.body)
 })
 
 app.listen(port, () => {
