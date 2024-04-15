@@ -13,7 +13,6 @@ export default class EventsAddController extends Controller {
       e.preventDefault();
       let model = this.get('model')
       model.save()
-      console.log('submit', this.get('model.name'));
       this.router.transitionTo('events.index');
     },
   };

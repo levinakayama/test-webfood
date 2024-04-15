@@ -20,7 +20,20 @@ app.use((req, res, next) => {
 app.options('*', cors(corsOptions))
 
 app.delete('/events/:id', async (req, res) => {
-    let result
+    let result = await db.query('SELECT * FROM public.events where id = $1',[req.params.id??0])
+    let row = result.rows[0]
+
+    let data = {
+        'type': 'events',
+        'id': row.id,
+        'attributes': {
+            'name': row.name,
+            'qty-people': row.qty_people,
+            'location': row.location,
+            'started-at': new Date(row.started_at).toLocaleString('pt-BR').replace(',', '')
+        }
+    }
+
     try {
         result = await db.query(`DELETE FROM events where id = $1`, [
             req.params.id??0
@@ -32,7 +45,9 @@ app.delete('/events/:id', async (req, res) => {
         })
     }
 
-    res.send(req.body)
+    res.send({
+        'data': data
+    })
 })
 
 app.patch('/events/:id', async (req, res) => {

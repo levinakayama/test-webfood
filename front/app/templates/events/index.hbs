@@ -36,7 +36,7 @@
                             <td>{{event.startedAt}}</td>
                             <td>
                                 <LinkTo @route="events.edit"  @model={{event}} class="btn btn-primary btn-sm">Editar</LinkTo>
-                                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                                <button type="button" class="btn btn-danger btn-sm" onclick={{action 'deleteEvent' event}}>Excluir</button>
                             </td>
                         </tr>
                         {{/each}}
