@@ -32,8 +32,6 @@ services:
   front:
     container_name: test.front
     build: ./front
-    env_file: 
-      - ./front/.env
     ports:
       - '4200:4200'
     volumes:
