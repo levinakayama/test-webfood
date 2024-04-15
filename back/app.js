@@ -19,12 +19,39 @@ app.use((req, res, next) => {
 
 app.options('*', cors(corsOptions))
 
-app.path('/events/:id', async (req, res) => {
-    
+app.delete('/events/:id', async (req, res) => {
+    let result
+    try {
+        result = await db.query(`DELETE FROM events where id = $1`, [
+            req.params.id??0
+        ])
+    } catch (e) {
+        res.status(500).json({
+            error: true,
+            msg: e.message
+        })
+    }
 
-    res.send({
-        'data': req.body
-    })
+    res.send(req.body)
+})
+
+app.patch('/events/:id', async (req, res) => {
+    let result
+    try {
+        result = await db.query(`UPDATE events SET name = $1, qty_people =$2, location = $3 where id = $4`, [
+            req.body.data.attributes.name,
+            req.body.data.attributes['qty-people'],
+            req.body.data.attributes.location,
+            req.params.id??0
+        ])
+    } catch (e) {
+        res.status(500).json({
+            error: true,
+            msg: e.message
+        })
+    }
+
+    res.send(req.body)
 })
 
 app.get('/events/:id', async (req, res) => {
@@ -48,7 +75,7 @@ app.get('/events/:id', async (req, res) => {
 })
 
 app.get('/events', async (req, res) => {
-    let rows = []; result = await db.query('SELECT * FROM public.events')
+    let rows = []; result = await db.query('SELECT * FROM public.events order by name')
     result.rows.forEach(row => {
         rows.push({
             'type': 'events',
