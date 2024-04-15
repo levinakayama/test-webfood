@@ -20,36 +20,37 @@ app.use((req, res, next) => {
 
 app.options('*', cors(corsOptions))
 
-app.get('/events', (req, res) => {
-    res.send({
-        'data': [
-            {
-                'type': 'events',
-                'id': '1',
-                'attributes': {
-                    'name': 'Grand Old Mansion',
-                    'qty-people': 10,
-                    'location': 'Sao Paulo',
-                    'started-at': '2023-03-03 10:00:00'
-                }
+app.get('/events', async (req, res) => {
+    let rows = []; result = await db.query('SELECT * FROM public.events')
+    result.rows.forEach(row => {
+        rows.push({
+            'type': 'events',
+            'id': row.id,
+            'attributes': {
+                'name': row.name,
+                'qty-people': row.qty_people,
+                'location': row.location,
+                'started-at': new Date(row.started_at).toLocaleString('pt-BR').replace(',', '')
             }
-        ]
+        })
+    })
+
+    res.send({
+        'data': rows
     })
 })
 
 app.post('/events', async (req, res) => {
-    console.log(req.body)
-
     let result
     try {
         req.body.data.attributes['started-at'] = new Date()
-        result = await db.query(`INSERT INTO public.events (name, qty_people, location, started_at) VALUES ($1,$2,$3,$4) RETURNING id`,[
+        result = await db.query(`INSERT INTO public.events (name, qty_people, location, started_at) VALUES ($1,$2,$3,$4) RETURNING id`, [
             req.body.data.attributes.name,
             req.body.data.attributes['qty-people'],
             req.body.data.attributes.location,
             req.body.data.attributes['started-at']
         ])
-    }catch(e){
+    } catch (e) {
         res.status(500).json({
             error: true,
             msg: e.message
