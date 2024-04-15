@@ -5,4 +5,4 @@ WORKDIR /app
 
 COPY . /app
 
-CMD bash -c "npm install && node app.js"
+CMD bash -c "sleep 10 && npm install && node app.js"
