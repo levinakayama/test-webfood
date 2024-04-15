@@ -35,7 +35,7 @@
                             <td>{{event.location}}</td>
                             <td>{{event.startedAt}}</td>
                             <td>
-                                <button type="button" class="btn btn-primary btn-sm">Editar</button>
+                                <LinkTo @route="events.edit"  @model={{event}} class="btn btn-primary btn-sm">Editar</LinkTo>
                                 <button type="button" class="btn btn-danger btn-sm">Excluir</button>
                             </td>
                         </tr>

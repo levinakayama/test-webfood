@@ -13,5 +13,6 @@ Router.map(function () {
 
   this.route('events', function () {
     this.route('add');
+    this.route('edit',{path:'/edit/:event_id'});
   });
 });

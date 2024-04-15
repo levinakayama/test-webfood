@@ -19,6 +19,26 @@ app.use((req, res, next) => {
 
 app.options('*', cors(corsOptions))
 
+app.get('/events/:id', async (req, res) => {
+    let result = await db.query('SELECT * FROM public.events where id = $1',[req.params.id??0])
+    let row = result.rows[0]
+
+    let data = {
+        'type': 'events',
+        'id': row.id,
+        'attributes': {
+            'name': row.name,
+            'qty-people': row.qty_people,
+            'location': row.location,
+            'started-at': new Date(row.started_at).toLocaleString('pt-BR').replace(',', '')
+        }
+    }
+
+    res.send({
+        'data': data
+    })
+})
+
 app.get('/events', async (req, res) => {
     let rows = []; result = await db.query('SELECT * FROM public.events')
     result.rows.forEach(row => {
