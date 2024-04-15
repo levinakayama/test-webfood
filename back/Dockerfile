@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18.19.0
 
 # Criação do diretório de trabalho do aplicativo
 WORKDIR /app
