@@ -1,0 +1,8 @@
+FROM node:18
+
+# Criação do diretório de trabalho do aplicativo
+WORKDIR /app
+
+COPY . /app
+
+CMD bash -c "node app.js"
