@@ -19,6 +19,14 @@ app.use((req, res, next) => {
 
 app.options('*', cors(corsOptions))
 
+app.path('/events/:id', async (req, res) => {
+    
+
+    res.send({
+        'data': req.body
+    })
+})
+
 app.get('/events/:id', async (req, res) => {
     let result = await db.query('SELECT * FROM public.events where id = $1',[req.params.id??0])
     let row = result.rows[0]
