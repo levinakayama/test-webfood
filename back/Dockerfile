@@ -1,4 +1,4 @@
-FROM node:18.19.0
+FROM node:18
 RUN apt update && apt install -y zip unzip
 
 # Criação do diretório de trabalho do aplicativo

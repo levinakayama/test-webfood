@@ -13,7 +13,7 @@ services:
     volumes:
       - ./.db/:/var/lib/postgresql/data
 
-  web:
+  api:
     container_name: test.api
     build: ./back
     restart: always
