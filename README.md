@@ -19,4 +19,3 @@ docker-compose up<br/>
 <br><br/>
 <br>O servidor Express estará disponível em http://localhost:8000.<br/>
 <br/>EmberJS na porta 4200.<br/>
-Teste Levi
